@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<head>
+<title>Calculator</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color:rgb(203, 241, 203);
+    }
+    .full{
+        height:600px;
+        width:400px;
+        background-color:honeydew;
+        position: relative;
+        left:38%;
+        top:40px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        box-shadow: 7px 7px 7px rgb(201, 200, 200);
+        
+    }
+    h2:hover{
+        color:brown;
+    }
+    input{
+        width:250px;
+        padding: 10px;
+        position: relative;
+        top:40px;
+        left:60px;
+        box-shadow: 5px 5px 5px rgb(195, 195, 195);
+        border:none;
+        font-size: 20px;
+        font-weight: bolder;
+
+    }
+    .btn{
+        position:relative;
+        top:70px;
+    }
+
+    .btn button{
+        width:60px;
+        height:60px;
+        margin-top: 30px;
+        margin-left: 30px;
+        font-size: 20px;
+        font-weight: bolder;
+        border-radius: 50%;
+        box-shadow: 5px 5px 5px rgb(220, 245, 220);
+        border: none;
+    }
+    .btn button:hover{
+        background-color: rgb(145, 240, 145);
+        transform: scale(1.2);
+    }
+    h2{
+        text-align: center;
+        margin-top: 10px;
+    }
+   
+
+</style>
+<body>
+
+    <h2>CALCULATOR</h2>
+    <div class="full">
+        <input type="text" id="input-id" disabled><br>
+     <div class="btn">
+        <button onclick="display('1')">1</button>
+        <button onclick="display('2')">2</button>
+        <button onclick="display('3')">3</button>
+        <button onclick="display('4')">4</button><br>
+        <button onclick="display('5')">5</button>
+        <button onclick="display('6')">6</button>
+        <button onclick="display('7')">7</button>
+        <button onclick="display('8')">8</button><br>
+        <button onclick="display('9')">9</button>
+        <button onclick="display('0')">0</button>
+        <button onclick="display('+')">+</button>
+        <button onclick="display('-')">-</button><br>
+        <button onclick="display('*')">*</button>
+        <button onclick="display('/')">/</button>
+        <button onclick="clearinput()" class="clr">Clear</button>
+        <button onclick="result()" class="sol">=</button><br>
+    </div>
+    </div>
+
+    <script>
+        function display(getvalue) {
+            document.getElementById("input-id").value += getvalue;
+        }
+
+        function clearinput() {
+            document.getElementById("input-id").value='';
+        }
+
+        function result() {
+            var expression = document.getElementById("input-id").value;
+            var Result;
+
+            try {
+                Result = eval(expression);
+                document.getElementById("input-id").value = Result;
+
+            }
+            catch {
+                document.getElementById("input-id").value = 'error';
+            }
+        }
+    </script>
+</body>
+
+</html>
